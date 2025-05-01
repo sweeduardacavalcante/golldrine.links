@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Golldrine Tech | Links Rápidos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="logo.png" type="image/png" />
+</head>
+<body>
+    <div class="container">
+        <header class="animate-on-scroll">
+            <div class="logo">
+                <img src="logo.png" alt="Logo da Golldrine Tech" style="width: 9%; height: auto; right: 2px;" />
+                <span>Golldrine Tech</span>
+            </div>
+            <h1>Pronto(a) para iniciar <br> seu negócio?</h1>
+            <p class="subtitle"><br>Entregamos soluções tecnológicas inovadoras, sob medida para o sucesso da sua empresa.</p>
+        </header>
+
+        <main>
+            <div class="links">
+                <a href="#" class="link-card animate-on-scroll" id="start-now" style="--delay: 0.1s">
+                    <div class="link-icon"><i class="fas fa-headset"></i></div>
+                    <div class="link-content">
+                        <h3>Agende uma Reunião</h3>
+                        <p>Consultoria de 15 minutos com nossos especialistas.</p>
+                    </div>
+                    <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
+                </a>
+                
+                <a href="#" class="link-card animate-on-scroll" style="--delay: 0.2s">
+                    <div class="link-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="link-content">
+                        <h3>Casos de Sucesso</h3>
+                        <p>Veja como ajudamos empresas semelhantes à sua.</p>
+                    </div>
+                    <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
+                </a>
+                
+                <a href="#" class="link-card animate-on-scroll" style="--delay: 0.3s">
+                    <div class="link-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div class="link-content">
+                        <h3>Nossa Metodologia</h3>
+                        <p>Saiba mais sobre o nosso processo.</p>
+                    </div>
+                    <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
+                </a>
+                
+                <a href="#" class="link-card animate-on-scroll" style="--delay: 0.4s">
+                    <div class="link-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="link-content">
+                        <h3>Acesse nosso Site</h3>
+                        <p>Seu próximo grande avanço começa com um clique.</p>
+                    </div>
+                    <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
+                </a>
+            </div>
+            
+            <div class="cta-section animate-on-scroll" style="--delay: 0.5s">
+                <button id="quick-start"><i class="fas fa-bolt"></i> Guia Exclusivo de Início</button>
+                <p class="small-text">Receba gratuitamente nosso guia de 5 etapas para lançar seu projeto.</p>
+            </div>
+        </main>
+
+        <footer class="animate-on-scroll" style="--delay: 0.6s">
+            <div class="social-links">
+                <a href="https://www.instagram.com/golldrine/?utm_source=ig_web_button_share_sheet" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/golldrine-computing/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://wa.me/5561996223965" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="copyright">© 2025 Golldrine Tech. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <div class="modal" id="start-modal">
+        <div class="modal-content animate-on-scroll">
+            <span class="close-modal">&times;</span>
+            <h2>Vamos Começar!</h2>
+            <p>Nosso compromisso é ajudar você a lançar seu projeto com máxima eficiência e excelência.</p>
+            <form id="project-form">
+                <div class="form-group">
+                    <label for="project-name">Nome do Negócio</label>
+                    <input type="text" id="project-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="business-goal">Objetivo Principal</label>
+                    <select id="business-goal" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="revenue">Aumentar a Receita</option>
+                        <option value="efficiency">Melhorar a Eficiência</option>
+                        <option value="innovation">Impulsionar a Inovação</option>
+                        <option value="engagement">Ampliar os Leads Qualificados</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Seu e-mail</label>
+                    <input type="email" id="email" required>
+                </div>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Iniciar Projeto</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
