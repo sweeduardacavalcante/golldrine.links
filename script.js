@@ -78,29 +78,24 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Form submission
-    projectForm.addEventListener('submit', function(e) {
-        e.preventDefault();
-        
-        // Get form values
-        const projectName = document.getElementById('project-name').value;
-        const businessGoal = document.getElementById('business-goal').value;
-        const email = document.getElementById('email').value;
-        
-        // Here you would typically send this data to your server
-        console.log('Form submitted:', { projectName, businessGoal, email });
-        
-        // Show confirmation (in a real app, you'd redirect or show a success message)
-        alert(`Thanks! We've received your project details for "${projectName}". Our team will contact you shortly at ${email} to begin.`);
-        
-        // Close modal and reset form
+   const projectForm = document.getElementById('project-form');
+const modal = document.getElementById('start-modal');
+
+projectForm.addEventListener('submit', function () {
+    // Pequeno delay para garantir que o Formspree processe o envio antes de esconder o modal
+    setTimeout(() => {
+        // Mostrar alerta (opcional)
+        alert('Obrigado! Recebemos seu projeto. Em breve entraremos em contato.');
+
+        // Fechar o modal
         modal.classList.remove('show');
-        
-        setTimeout(() => {
-            modal.style.display = 'none';
-            document.body.style.overflow = 'auto';
-            projectForm.reset();
-        }, 300);
-    });
+        modal.style.display = 'none';
+        document.body.style.overflow = 'auto';
+
+        // Resetar o formulário
+        projectForm.reset();
+    }, 100); // tempo bem curto, só para garantir que o submit vá
+});
     
     // Add hover animation to link cards
     const linkCards = document.querySelectorAll('.link-card');
