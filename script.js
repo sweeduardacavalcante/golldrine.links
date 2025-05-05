@@ -83,24 +83,49 @@ document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('start-modal');
 
     if (projectForm) {
-        projectForm.addEventListener('submit', function() {
+        projectForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+
             const projectName = document.getElementById('project-name').value;
             const businessGoal = document.getElementById('business-goal').value;
             const email = document.getElementById('email').value;
 
-            alert(`Obrigado! Recebemos os detalhes do projeto "${projectName}". Em breve entraremos em contato pelo e-mail ${email}.`);
+            // Monta os dados para o Formspree
+            const formData = new FormData();
+            formData.append('project-name', projectName);
+            formData.append('business-goal', businessGoal);
+            formData.append('email', email);
 
-            modal.classList.remove('show');
+            // Envia via fetch
+            fetch('https://formspree.io/f/xpwdddqq', {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Fecha o modal e reseta o formulário
+                    modal.classList.remove('show');
+                    modal.style.display = 'none';
+                    document.body.style.overflow = 'auto';
+                    projectForm.reset();
 
-            setTimeout(() => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                projectForm.reset();
-            }, 300);
+                    // Exibe a mensagem de agradecimento
+                    showThankYouMessage();
+                } else {
+                    alert('Erro ao enviar. Por favor, tente novamente.');
+                }
+            })
+            .catch(error => {
+                console.error('Erro:', error);
+                alert('Erro inesperado. Tente mais tarde.');
+            });
         });
     }
 
-    // Animações nos link cards
+    // Animação de hover nos link cards
     const linkCards = document.querySelectorAll('.link-card');
     linkCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
@@ -113,6 +138,22 @@ document.addEventListener('DOMContentLoaded', function() {
             if (arrow) arrow.style.transform = 'translateX(0)';
         });
     });
+
+    // Função para exibir a mensagem de agradecimento
+    function showThankYouMessage() {
+        const thankYou = document.createElement('div');
+        thankYou.className = 'thank-you-message';
+        thankYou.innerHTML = `
+            <h3>Obrigada pelo envio!</h3>
+            <p>Recebemos seus dados e entraremos em contato em breve.</p>
+        `;
+        document.body.appendChild(thankYou);
+
+        // Remove após 5 segundos
+        setTimeout(() => {
+            thankYou.remove();
+        }, 5000);
+    }
 });
     
     // Initialize scroll animations
