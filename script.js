@@ -78,24 +78,22 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Form submission
-   const projectForm = document.getElementById('project-form');
-const modal = document.getElementById('start-modal');
+   projectForm.addEventListener('submit', function() {
+    const projectName = document.getElementById('project-name').value;
+    const businessGoal = document.getElementById('business-goal').value;
+    const email = document.getElementById('email').value;
 
-projectForm.addEventListener('submit', function () {
-    // Pequeno delay para garantir que o Formspree processe o envio antes de esconder o modal
+    alert(`Obrigado! Recebemos os dados do projeto "${projectName}". Em breve entraremos em contato pelo e-mail ${email}.`);
+
+    modal.classList.remove('show');
+
     setTimeout(() => {
-        // Mostrar alerta (opcional)
-        alert('Obrigado! Recebemos seu projeto. Em breve entraremos em contato.');
-
-        // Fechar o modal
-        modal.classList.remove('show');
         modal.style.display = 'none';
         document.body.style.overflow = 'auto';
-
-        // Resetar o formulário
         projectForm.reset();
-    }, 100); // tempo bem curto, só para garantir que o submit vá
+    }, 300);
 });
+
     
     // Add hover animation to link cards
     const linkCards = document.querySelectorAll('.link-card');
