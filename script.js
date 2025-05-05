@@ -78,36 +78,42 @@ document.addEventListener('DOMContentLoaded', function() {
     });
     
     // Form submission
-   projectForm.addEventListener('submit', function() {
-    const projectName = document.getElementById('project-name').value;
-    const businessGoal = document.getElementById('business-goal').value;
-    const email = document.getElementById('email').value;
+document.addEventListener('DOMContentLoaded', function() {
+    const projectForm = document.getElementById('project-form');
+    const modal = document.getElementById('start-modal');
 
-    alert(`Obrigado! Recebemos os dados do projeto "${projectName}". Em breve entraremos em contato pelo e-mail ${email}.`);
+    if (projectForm) {
+        projectForm.addEventListener('submit', function() {
+            const projectName = document.getElementById('project-name').value;
+            const businessGoal = document.getElementById('business-goal').value;
+            const email = document.getElementById('email').value;
 
-    modal.classList.remove('show');
+            alert(`Obrigado! Recebemos os detalhes do projeto "${projectName}". Em breve entraremos em contato pelo e-mail ${email}.`);
 
-    setTimeout(() => {
-        modal.style.display = 'none';
-        document.body.style.overflow = 'auto';
-        projectForm.reset();
-    }, 300);
-});
+            modal.classList.remove('show');
 
-    
-    // Add hover animation to link cards
+            setTimeout(() => {
+                modal.style.display = 'none';
+                document.body.style.overflow = 'auto';
+                projectForm.reset();
+            }, 300);
+        });
+    }
+
+    // Animações nos link cards
     const linkCards = document.querySelectorAll('.link-card');
     linkCards.forEach(card => {
         card.addEventListener('mouseenter', function() {
             const arrow = this.querySelector('.link-arrow');
-            arrow.style.transform = 'translateX(4px)';
+            if (arrow) arrow.style.transform = 'translateX(4px)';
         });
         
         card.addEventListener('mouseleave', function() {
             const arrow = this.querySelector('.link-arrow');
-            arrow.style.transform = 'translateX(0)';
+            if (arrow) arrow.style.transform = 'translateX(0)';
         });
     });
+});
     
     // Initialize scroll animations
     initScrollAnimations();
