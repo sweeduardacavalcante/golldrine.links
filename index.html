@@ -82,27 +82,27 @@
             <span class="close-modal">&times;</span>
             <h2>Vamos Começar!</h2>
             <p>Nosso compromisso é ajudar você a lançar seu projeto com máxima eficiência e excelência.</p>
-            <form id="project-form">
-                <div class="form-group">
-                    <label for="project-name">Nome do Negócio</label>
-                    <input type="text" id="project-name" required>
-                </div>
-                <div class="form-group">
-                    <label for="business-goal">Objetivo Principal</label>
-                    <select id="business-goal" required>
-                        <option value="">Selecione uma opção</option>
-                        <option value="revenue">Aumentar a Receita</option>
-                        <option value="efficiency">Melhorar a Eficiência</option>
-                        <option value="innovation">Impulsionar a Inovação</option>
-                        <option value="engagement">Ampliar os Leads Qualificados</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label for="email">Seu e-mail</label>
-                    <input type="email" id="email" required>
-                </div>
-                <button type="submit"><i class="fas fa-paper-plane"></i> Iniciar Projeto</button>
-            </form>
+<form action="https://formspree.io/f/xpwdddqq" method="POST">
+    <div class="form-group">
+        <label for="project-name">Nome do Negócio</label>
+        <input type="text" id="project-name" name="project-name" required>
+    </div>
+    <div class="form-group">
+        <label for="business-goal">Objetivo Principal</label>
+        <select id="business-goal" name="business-goal" required>
+            <option value="">Selecione uma opção:</option>
+            <option value="revenue">Aumentar a Receita</option>
+            <option value="efficiency">Melhorar a Eficiência</option>
+            <option value="innovation">Impulsionar a Inovação</option>
+            <option value="engagement">Ampliar os Leads Qualificados</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="email">Seu e-mail</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <button type="submit"><i class="fas fa-paper-plane"></i> Iniciar Projeto</button>
+</form>
         </div>
     </div>
 
