@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rope Advogados| Links Rápidos</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" href="logo2.png" type="image/png"/>
+</head>
+<body>
+    <div class="container">
+        <header class="animate-on-scroll">
+            <div class="logo">
+                <img src="logo.png" alt="Logo da Golldrine Tech" style="width: 13%; height: auto; right: 2px;" />
+                <span>Rodrigues e Pereira</span>
+            </div>
+            <h1>Pronto(a) para garantir segurança jurídica ao seu negócio ou à sua vida?</h1>
+            <p class="subtitle"><br>Oferecemos soluções jurídicas personalizadas para proteger seus direitos e impulsionar seus resultados.</p>
+        </header>
+
+        <main>
+            <div class="links">
+                <a href="#" class="link-card animate-on-scroll" id="start-now" style="--delay: 0.1s">
+                    <div class="link-icon"><i class="fas fa-headset"></i></div>
+                    <div class="link-content">
+                        <h3>Agende uma Reunião</h3>
+                        <p>Atendimento jurídico inicial gratuito com nossos advogados.</p>
+                    </div>
+                    <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
+                </a>
+                
+                <a href="#" class="link-card animate-on-scroll" style="--delay: 0.2s">
+                    <div class="link-icon"><i class="fas fa-file-alt"></i></div>
+                    <div class="link-content">
+                        <h3>Casos de Sucesso</h3>
+                        <p>Conheça histórias reais de clientes que tiveram seus direitos garantidos..</p>
+                    </div>
+                    <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
+                </a>
+                
+                <a href="#" class="link-card animate-on-scroll" style="--delay: 0.3s">
+                    <div class="link-icon"><i class="fas fa-project-diagram"></i></div>
+                    <div class="link-content">
+                        <h3>Nossa Atuação</h3>
+                        <p>Entenda como trabalhamos na defesa dos seus interesses.</p>
+                    </div>
+                    <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
+                </a>
+                
+                <a href="https://rope.adv.br/#" class="link-card animate-on-scroll" style="--delay: 0.4s">
+                    <div class="link-icon"><i class="fas fa-rocket"></i></div>
+                    <div class="link-content">
+                        <h3>Acesse nosso Site</h3>
+                        <p>Seu próximo grande avanço começa com um clique.</p>
+                    </div>
+                    <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
+                </a>
+            </div>
+            
+            <div class="cta-section animate-on-scroll" style="--delay: 0.5s">
+                <button id="quick-start"><i class="fas fa-bolt"></i>Guia Jurídico Exclusivo</button>
+                <p class="small-text">Baixe gratuitamente nosso guia com 5 passos essenciais para garantir seus direitos com segurança.</p>
+            </div>
+        </main>
+
+        <footer class="animate-on-scroll" style="--delay: 0.6s">
+            <div class="social-links">
+                <a href="https://www.instagram.com/rope.adv?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.linkedin.com/company/rope-advogados/" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://api.whatsapp.com/send?phone=5561981627655" aria-label="Whatsapp"><i class="fab fa-whatsapp"></i></a>
+            </div>
+            <p class="copyright">© 2025 Golldrine Tech. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <div class="modal" id="start-modal">
+        <div class="modal-content animate-on-scroll">
+            <span class="close-modal">&times;</span>
+            <h2>Vamos Começar!</h2>
+            <p>Nosso compromisso é oferecer soluções jurídicas com eficiência, excelência e total dedicação à sua causa.</p>
+<form action="https://formspree.io/f/xpwdddqq" method="POST">
+    <div class="form-group">
+        <label for="project-name">Nome do Paciente ou Representante</label>
+<input type="text" id="project-name" name="project-name" required>
+</div>
+
+<!-- Modal do Guia Jurídico -->
+<div id="guide-modal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <h2>Guia Jurídico</h2>
+      <p>Baixe agora seu guia completo.</p>
+      <a href="guia-juridico.pdf" download class="download-btn">Baixar Guia</a>
+    </div>
+  </div>
+  
+<div class="form-group">
+    <label for="business-goal">Qual é sua principal necessidade jurídica?</label>
+    <select id="business-goal" name="business-goal" required>
+        <option value="">Selecione uma opção</option>
+        <option value="access-medication">Conseguir acesso a medicação de alto custo</option>
+        <option value="plan-denial">Resolver negativa do plano de saúde</option>
+        <option value="judicial-consulting">Receber orientação jurídica sobre direitos na saúde</option>
+        <option value="disability-benefits">Solicitar benefício por incapacidade ou aposentadoria</option>
+        <option value="other">Outro</option>
+    </select>
+</div>
+    <div class="form-group">
+        <label for="email">Seu e-mail</label>
+        <input type="email" id="email" name="email" required>
+    </div>
+    <button type="submit"><i class="fas fa-paper-plane"></i> Iniciar Projeto</button>
+</form>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
