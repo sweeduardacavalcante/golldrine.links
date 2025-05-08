@@ -33,7 +33,7 @@
                     <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
                 </a>
                 
-                <a href="#" class="link-card animate-on-scroll" style="--delay: 0.2s">
+                <a href="#" class="link-card animate-on-scroll" id="success-cases" style="--delay: 0.2s">
                     <div class="link-icon"><i class="fas fa-file-alt"></i></div>
                     <div class="link-content">
                         <h3>Casos de Sucesso</h3>
@@ -42,7 +42,7 @@
                     <div class="link-arrow"><i class="fas fa-chevron-right"></i></div>
                 </a>
                 
-                <a href="#" class="link-card animate-on-scroll" style="--delay: 0.3s">
+                <a href="#" class="link-card animate-on-scroll" id="methodology" style="--delay: 0.3s">
                     <div class="link-icon"><i class="fas fa-project-diagram"></i></div>
                     <div class="link-content">
                         <h3>Nossa Metodologia</h3>
@@ -61,7 +61,7 @@
                 </a>
             </div>
             
-             <div class="cta-section animate-on-scroll" style="--delay: 0.5s">
+            <div class="cta-section animate-on-scroll" style="--delay: 0.5s">
                 <button id="quick-start"><i class="fas fa-bolt"></i> Guia Exclusivo de Início</button>
                 <p class="small-text">Receba gratuitamente nosso guia de 5 etapas para lançar seu projeto.</p>
             </div>
@@ -77,32 +77,142 @@
         </footer>
     </div>
 
+    <!-- Modal do Formulário -->
     <div class="modal" id="start-modal">
         <div class="modal-content animate-on-scroll">
             <span class="close-modal">&times;</span>
             <h2>Vamos Começar!</h2>
             <p>Nosso compromisso é ajudar você a lançar seu projeto com máxima eficiência e excelência.</p>
-<form action="https://formspree.io/f/xpwdddqq" method="POST">
-    <div class="form-group">
-        <label for="project-name">Nome do Negócio</label>
-        <input type="text" id="project-name" name="project-name" required>
+            <form action="https://formspree.io/f/xpwdddqq" method="POST">
+                <div class="form-group">
+                    <label for="project-name">Nome do Negócio</label>
+                    <input type="text" id="project-name" name="project-name" required>
+                </div>
+                <div class="form-group">
+                    <label for="business-goal">Objetivo Principal</label>
+                    <select id="business-goal" name="business-goal" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="revenue">Aumentar a Receita</option>
+                        <option value="efficiency">Melhorar a Eficiência</option>
+                        <option value="innovation">Impulsionar a Inovação</option>
+                        <option value="engagement">Ampliar os Leads Qualificados</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="email">Seu e-mail</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                <button type="submit"><i class="fas fa-paper-plane"></i> Iniciar Projeto</button>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="business-goal">Objetivo Principal</label>
-        <select id="business-goal" name="business-goal" required>
-            <option value="">Selecione uma opção</option>
-            <option value="revenue">Aumentar a Receita</option>
-            <option value="efficiency">Melhorar a Eficiência</option>
-            <option value="innovation">Impulsionar a Inovação</option>
-            <option value="engagement">Ampliar os Leads Qualificados</option>
-        </select>
+
+    <!-- Modal do Guia Exclusivo -->
+    <div class="modal" id="guide-modal">
+        <div class="modal-content animate-on-scroll">
+            <span class="close-modal">&times;</span>
+            <h2>Guia Exclusivo de Início</h2>
+            <p>Preencha o formulário abaixo para receber nosso guia gratuito com as 5 etapas essenciais para lançar seu projeto com sucesso.</p>
+            <form action="https://formspree.io/f/xpwdddqq" method="POST">
+                <div class="form-group">
+                    <label for="guide-name">Seu Nome</label>
+                    <input type="text" id="guide-name" name="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="guide-email">Seu e-mail</label>
+                    <input type="email" id="guide-email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="business-type">Tipo de Negócio</label>
+                    <select id="business-type" name="business-type" required>
+                        <option value="">Selecione uma opção</option>
+                        <option value="startup">Startup</option>
+                        <option value="small-business">Pequena Empresa</option>
+                        <option value="medium-business">Média Empresa</option>
+                        <option value="large-business">Grande Empresa</option>
+                        <option value="freelancer">Freelancer/Autônomo</option>
+                    </select>
+                </div>
+                <button type="submit"><i class="fas fa-download"></i> Receber Guia Gratuito</button>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="email">Seu e-mail</label>
-        <input type="email" id="email" name="email" required>
+
+    <!-- Modal da Metodologia -->
+    <div class="modal" id="methodology-modal">
+        <div class="modal-content animate-on-scroll">
+            <span class="close-modal">&times;</span>
+            <h2>Nossa Metodologia</h2>
+            <div class="methodology-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h3>Diagnóstico</h3>
+                        <p>Análise detalhada das necessidades e objetivos do seu negócio para entender completamente o desafio.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h3>Planejamento</h3>
+                        <p>Desenvolvimento de uma estratégia personalizada com cronograma, recursos e metas claras.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h3>Execução</h3>
+                        <p>Implementação da solução com acompanhamento contínuo e ajustes conforme necessário.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h3>Testes</h3>
+                        <p>Validação rigorosa da solução para garantir qualidade, performance e segurança.</p>
+                    </div>
+                </div>
+                <div class="step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h3>Entrega & Suporte</h3>
+                        <p>Implantação da solução e oferecimento de suporte contínuo para garantir o sucesso a longo prazo.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="cta-methodology">
+                <p>Quer saber como podemos aplicar esta metodologia no seu projeto?</p>
+                <button id="contact-after-method"><i class="fas fa-headset"></i> Fale Conosco</button>
+            </div>
+        </div>
     </div>
-    <button type="submit"><i class="fas fa-paper-plane"></i> Iniciar Projeto</button>
-</form>
+
+    <!-- Modal de Casos de Sucesso -->
+    <div class="modal" id="success-modal">
+        <div class="modal-content animate-on-scroll">
+            <span class="close-modal">&times;</span>
+            <h2>Casos de Sucesso</h2>
+            <div class="success-cases">
+                <div class="case">
+                    <h3>Website para Escritório de Advocacia</h3>
+                    <p class="case-result">+40% na geração de leads qualificados</p>
+                    <p>Desenvolvemos um site estratégico, com design sofisticado e navegação intuitiva, focado na conversão de visitantes em clientes.</p>
+                </div>
+                <div class="case">
+                    <h3>Identidade Visual para Salão de Beleza</h3>
+                    <p class="case-result">Aumento de 60% no agendamento online</p>
+                    <p>Craimos uma identidade visual elegante e memorável, conectada ao público-alvo de alto padrão.</p>
+                </div>
+                <div class="case">
+                    <h3>Marketing Digital para Empresa de Tecnologia</h3>
+                    <p class="case-result">1.000+ downloads em 3 meses</p>
+                    <p>O resultado: autoridade reforçada no setor, crescimento real em oportunidades de negócio.</p>
+                </div>
+            </div>
+            <div class="cta-success">
+                <p>Seu negócio pode ser o próximo caso de sucesso!</p>
+                <button id="contact-after-success"><i class="fas fa-headset"></i> Quero Resultados Similares</button>
+            </div>
         </div>
     </div>
 
