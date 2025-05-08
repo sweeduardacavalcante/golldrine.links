@@ -1,20 +1,33 @@
-// script.js
 document.addEventListener('DOMContentLoaded', function() {
-    // Get modal elements
-    const modal = document.getElementById('start-modal');
+    // Elementos dos modais
+    const startModal = document.getElementById('start-modal');
+    const guideModal = document.getElementById('guide-modal');
+    const methodologyModal = document.getElementById('methodology-modal');
+    const successModal = document.getElementById('success-modal');
+    
+    // Botões para abrir modais
     const startNowBtn = document.getElementById('start-now');
     const quickStartBtn = document.getElementById('quick-start');
-    const closeModal = document.querySelector('.close-modal');
-    const projectForm = document.getElementById('project-form');
+    const methodologyBtn = document.getElementById('methodology');
+    const successCasesBtn = document.getElementById('success-cases');
+    const contactAfterMethodBtn = document.getElementById('contact-after-method');
+    const contactAfterSuccessBtn = document.getElementById('contact-after-success');
     
-    // Initialize Intersection Observer for scroll animations
+    // Botões para fechar modais
+    const closeModalButtons = document.querySelectorAll('.close-modal');
+    
+    // Formulários
+    const projectForm = document.querySelector('#start-modal form');
+    const guideForm = document.querySelector('#guide-modal form');
+
+    // Inicializa animações de scroll
     const initScrollAnimations = () => {
         const observer = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
                     entry.target.classList.add('visible');
                     
-                    // For link cards with individual delays
+                    // Para link cards com delays individuais
                     if (entry.target.classList.contains('link-card')) {
                         const delay = entry.target.style.getPropertyValue('--delay') || '0s';
                         entry.target.style.transitionDelay = delay;
@@ -26,77 +39,135 @@ document.addEventListener('DOMContentLoaded', function() {
             rootMargin: '0px 0px -50px 0px'
         });
         
-        // Observe all elements with animate-on-scroll class
+        // Observa todos os elementos com a classe animate-on-scroll
         document.querySelectorAll('.animate-on-scroll').forEach(el => {
             observer.observe(el);
         });
     };
-    
-    // Open modal when "Start Now" is clicked
-    startNowBtn.addEventListener('click', function(e) {
-        e.preventDefault();
+
+    // Função para abrir modal
+    const openModal = (modal) => {
         modal.style.display = 'flex';
         document.body.style.overflow = 'hidden';
         
-        // Trigger modal animation after display is set
+        // Dispara animação após o display ser setado
         setTimeout(() => {
             modal.classList.add('show');
         }, 10);
-    });
-    
-    // Open modal when "Quick Start Guide" is clicked
-    quickStartBtn.addEventListener('click', function() {
-        modal.style.display = 'flex';
-        document.body.style.overflow = 'hidden';
-        
-        setTimeout(() => {
-            modal.classList.add('show');
-        }, 10);
-    });
-    
-    // Close modal when X is clicked
-    closeModal.addEventListener('click', function() {
+    };
+
+    // Função para fechar modal
+    const closeModal = (modal) => {
         modal.classList.remove('show');
         
-        // Wait for animation to complete before hiding
+        // Espera a animação completar antes de esconder
         setTimeout(() => {
             modal.style.display = 'none';
             document.body.style.overflow = 'auto';
         }, 300);
+    };
+
+    // Event listeners para abrir modais
+    if (startNowBtn) {
+        startNowBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(startModal);
+        });
+    }
+
+    if (quickStartBtn) {
+        quickStartBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(guideModal);
+        });
+    }
+
+    if (methodologyBtn) {
+        methodologyBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(methodologyModal);
+        });
+    }
+
+    if (successCasesBtn) {
+        successCasesBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            openModal(successModal);
+        });
+    }
+
+    // Event listeners para botões de call-to-action dentro dos modais
+    if (contactAfterMethodBtn) {
+        contactAfterMethodBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal(methodologyModal);
+            openModal(startModal);
+        });
+    }
+
+    if (contactAfterSuccessBtn) {
+        contactAfterSuccessBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            closeModal(successModal);
+            openModal(startModal);
+        });
+    }
+
+    // Event listeners para fechar modais
+    closeModalButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            const modal = button.closest('.modal');
+            closeModal(modal);
+        });
     });
-    
-    // Close modal when clicking outside content
-    window.addEventListener('click', function(e) {
-        if (e.target === modal) {
-            modal.classList.remove('show');
-            
-            setTimeout(() => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-            }, 300);
+
+    // Fechar modal ao clicar fora do conteúdo
+    window.addEventListener('click', (e) => {
+        if (e.target.classList.contains('modal')) {
+            closeModal(e.target);
         }
     });
-    
-    // Form submission
-document.addEventListener('DOMContentLoaded', function() {
-    const projectForm = document.getElementById('project-form');
-    const modal = document.getElementById('start-modal');
 
+    // Fechar modal com tecla ESC
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            const openModal = document.querySelector('.modal.show');
+            if (openModal) {
+                closeModal(openModal);
+            }
+        }
+    });
+
+    // Submissão de formulários
     if (projectForm) {
-        projectForm.addEventListener('submit', function() {
+        projectForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
             const projectName = document.getElementById('project-name').value;
             const businessGoal = document.getElementById('business-goal').value;
             const email = document.getElementById('email').value;
 
+            // Simulação de envio - substituir por código real
             alert(`Obrigado! Recebemos os detalhes do projeto "${projectName}". Em breve entraremos em contato pelo e-mail ${email}.`);
 
-            modal.classList.remove('show');
+            closeModal(startModal);
+            this.reset();
+        });
+    }
 
-            setTimeout(() => {
-                modal.style.display = 'none';
-                document.body.style.overflow = 'auto';
-                projectForm.reset();
-            }, 300);
+    if (guideForm) {
+        guideForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('guide-name').value;
+            const email = document.getElementById('guide-email').value;
+            const businessType = document.getElementById('business-type').value;
+
+            // Simulação de envio - substituir por código real
+            alert(`Obrigado, ${name}! Seu guia exclusivo será enviado para ${email}.`);
+
+            closeModal(guideModal);
+            this.reset();
         });
     }
 
@@ -113,14 +184,12 @@ document.addEventListener('DOMContentLoaded', function() {
             if (arrow) arrow.style.transform = 'translateX(0)';
         });
     });
-});
-    
-    // Initialize scroll animations
-    initScrollAnimations();
-    
-    // Make sure footer is visible if user scrolls to bottom directly
+
+    // Verifica visibilidade do footer
     const checkFooterVisibility = () => {
         const footer = document.querySelector('footer');
+        if (!footer) return;
+        
         const footerPosition = footer.getBoundingClientRect();
         const screenPosition = window.innerHeight;
         
@@ -129,6 +198,8 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     };
     
+    // Inicializações
+    initScrollAnimations();
     window.addEventListener('scroll', checkFooterVisibility);
     window.addEventListener('load', checkFooterVisibility);
 });
